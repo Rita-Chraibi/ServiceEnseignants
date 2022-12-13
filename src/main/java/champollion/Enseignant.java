@@ -3,6 +3,10 @@ package champollion;
 public class Enseignant extends Personne {
 
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
+    int volumeCM;
+    int volumeTD;
+    int volumeTP;
+    UE unite
 
     public Enseignant(String nom, String email) {
         super(nom, email);
@@ -17,8 +21,17 @@ public class Enseignant extends Personne {
      *
      */
     public int heuresPrevues() {
-        // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        double CMequivalent = 1.5 ;
+        int a= (int)Math.round(CMequivalent);
+
+        double TPequivalent = 0.75;
+        int c = (int)Math.round(TPequivalent);
+
+        int TDequivalent = 1;
+        Enseignant ens = new Enseignant(getNom(),getEmail());
+        ServicePrevu service = new ServicePrevu(ens,"ue",a,TDequivalent,c);
+        int total = a + TDequivalent + c;
+        return total;
     }
 
     /**
